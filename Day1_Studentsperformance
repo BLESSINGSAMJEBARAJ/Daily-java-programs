@@ -1,0 +1,58 @@
+import java.util.*;
+import java.lang.Math;
+
+public class marksofstudents{
+    public static void main (String[] args){
+
+        System.out.println("Enter the number of Students");
+        Scanner sc=new Scanner(System.in);
+        int students=sc.nextInt();  
+
+        int marks[]= new int[students];
+        System.out.println("Enter the marks of the students");
+        int sum=0;
+        int i=0;
+        while(i<students){
+                    int MARK=sc.nextInt();
+                    if(MARK<=100 && MARK>0) {          
+                    marks[i]=MARK;
+                    sum=sum+marks[i];
+                    i++;
+                    }
+                    else{
+                        System.out.println("Enter correct mark");
+                        
+                    }
+
+
+
+        }
+        
+        double average=(double)sum/students;
+        int max=marks[0];
+        int min=marks[0];
+        for(int j=0;j<students;j++){
+            if(marks[j]>max) max=marks[j];
+            if(marks[j]<min) min=marks[j];
+        }
+
+        System.out.println("Total marks: " +sum);
+        System.out.println("Average marks: "+average);
+        System.out.println("Maximum marks: "+max);
+        System.out.println("Minimum marks: "+min);
+
+        if (average>=80){
+            System.out.println("Grade A");
+        }
+        else if(average>=60 && average<80){
+            System.out.println("Grade B");
+        }
+        else if(average>=40 && average<60){
+            System.out.println("Grade C");
+        }
+        else if (average<40){
+            System.out.println("Grade D");
+        }
+                    
+    }
+}
