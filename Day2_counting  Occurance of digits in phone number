@@ -1,0 +1,85 @@
+
+import java.util.*;
+
+class countdigits{
+
+    public static void main (String[] args){
+
+
+        
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter a 10 digit number ");
+        long number=sc.nextLong();
+
+        
+        if(istendigit(number)!=10)System.out.println("Enter a valid number");
+        else    {
+            long res[]=storedigits(number);
+            System.out.println("The Output is");
+
+            System.out.println(Arrays.toString(res));
+            noOfoccurance(res);
+            }
+
+
+
+    }
+    public static long istendigit(long number){
+        
+        int count=0;
+        long temp=number;
+       
+        while(temp>0){
+            temp=temp/10;
+            count++;
+        }
+        return count;
+    }
+    
+
+    public static long[] storedigits(long number){
+        long a[]=new long [10]; 
+        for(int i=9;i>=0;i--){
+            a[i]= number%10;
+            number=number/10;
+    
+        
+    }
+    return a;
+    }
+
+    public static void noOfoccurance(long[] a){
+        long d[]=new long[10];
+        int index=0;
+        
+        
+
+        for(int i=0;i<a.length;i++){
+            int count=0;
+            boolean alreadyseen=false;
+            for(int k=0;k<index;k++){
+                if(a[i]==d[k]) {
+                    alreadyseen=true;
+                    break;
+                }
+            }
+            if(alreadyseen) continue;
+            
+            
+            for(int j=0;j<a.length;j++){
+                if(a[i]==a[j]){
+                    count++;
+                }
+                
+            }
+            System.out.println("Digit "+a[i]+"--> "+count+"times");
+            d[index++]=a[i];
+        }
+
+        
+    }
+
+   
+
+
+}
